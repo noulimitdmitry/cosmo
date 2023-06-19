@@ -1,0 +1,19 @@
+.post{
+  display: flex;
+}
+
+.post:not(:last-child){
+  margin-bottom: 10px;
+}
+
+.avatar_mini{
+  display: inline-block;
+  width: 70px;
+  margin-right: 20px;
+}
+
+.post__item{
+  display: flex;
+  align-items: center;
+}
+
