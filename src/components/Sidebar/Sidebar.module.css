@@ -1,14 +1,20 @@
 .sidebar{
-  background: gold;
-  font-size: 50px; 
+  background: rgb(223, 248, 5);
   grid-area: sidebar;
-}
-
-.item {
-  all: initial;
-  display: block;
+  font-size: 20px;
+  border-left: 2px solid black;
 }
 
 .item:not(:last-child) {
   padding-bottom: 10px;
+}
+
+.item{
+  display: block;
+  color: rgb(114, 6, 8);
+  font-size: 30px;
+}
+
+.activeLink{
+  color: rgb(6, 64, 114);
 }

@@ -1,16 +1,17 @@
 import styles from './Sidebar.module.css'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+
 
 const Sidebar = () => {
   return (
-    <div className={styles.sidebar} style={{ background: "gold", fontSize: "50px", gridArea:"sidebar" }}>
-      <ul className={styles.items}>
-        <Link to='./profile'><span className={styles.item}>Profile</span></Link>
-        <Link to='./messages'><span className={styles.item}>Messages</span></Link>
-        <Link to='./news'><span className={styles.item}>News</span></Link>
-        <Link to='./music'><span className={styles.item}>Music</span></Link>
-        <Link to='./settings'><span className={styles.item}>Settings</span></Link>
-      </ul>
+    <div className={styles.sidebar}>
+      <nav className={styles.items}>
+        <li className={styles.item}><NavLink to='/' activeClassName={styles.activeLink}>Profile</NavLink></li>
+        <li className={styles.item}><NavLink to='/messages' activeClassName={styles.activeLink}>Messages</NavLink></li>
+        <li className={styles.item}><NavLink to='/news' activeClassName={styles.activeLink}>News</NavLink></li>
+        <li className={styles.item}><NavLink to='/music' activeClassName={styles.activeLink}>Music</NavLink></li>
+        <li className={styles.item}><NavLink to='/settings' activeClassName={styles.activeLink}>Settings</NavLink></li>
+      </nav>
     </div>
   );
 }

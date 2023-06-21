@@ -1,5 +1,10 @@
 
 
+.wrapper{
+  min-height: 100vh;
+  background: #c5dbe2; 
+}
+
 .App {
   display:grid;
   width: 1200px;
@@ -35,7 +40,18 @@
   }
 }
 
-p {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-decoration: none;
 }
+
+li{
+  list-style-type: none;
+}
+
