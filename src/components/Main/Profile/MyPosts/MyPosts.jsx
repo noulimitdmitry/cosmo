@@ -1,17 +1,17 @@
 import styles from './MyPosts.module.css'
 import Post from './Post/Post'
 
-let messages = ['Post 1', 'Post 2', 'Post 3', 'Post 4', 'Post 5','Post 6'];
-
 const MyPosts = (props) => {
+
+  let arr = props.posts;
+  const arrPosts = arr.map((item, index, arr) => (
+    <Post post={props.posts[index].text} likes={props.posts[index].likes}/>
+  )) 
+
   return (
     <div className={styles.myPosts}>
-      <p> New posts </p>
-      <Post messages={messages[0]}/>
-      <Post messages={messages[1]}/>
-      <Post messages={messages[2]}/>
-      <Post messages={messages[3]}/>
-      <Post messages={messages[4]}/>
+      <p className={styles.title}> New posts </p>
+      {arrPosts}
     </div>
   );
 }

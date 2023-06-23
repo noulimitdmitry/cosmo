@@ -1,15 +1,34 @@
 import styles from "./FormPost.module.css";
+import { createRef } from "react";
 
-const FormPost = () => {
+const FormPost = (props) => {
+  let newRef = createRef();
+  let truns = (event) => {
+    props.addPost(newRef.current.value);
+    newRef.current.value = '';
+    event.preventDefault();
+  };
+
   return (
     <div className={styles.form}>
+      <h2 className={styles.title}>My posts</h2>
       <form action="#">
-        <h>My posts</h>
         <div>
-          <textarea name="comment" id="#" cols="30" rows="3"></textarea>
+          <textarea
+            className={styles.textArea}
+            name="comment"
+            id="#"
+            cols="30"
+            rows="3"
+            ref={newRef}
+          ></textarea>
         </div>
         <div>
-          <input type="text"></input>
+          <input
+            className={styles.submit}
+            type="submit"
+            onClick={truns}
+          ></input>
         </div>
       </form>
     </div>

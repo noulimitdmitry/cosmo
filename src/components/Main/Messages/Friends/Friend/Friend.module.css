@@ -1,0 +1,15 @@
+
+.item{
+  color:chartreuse;
+  font-weight:600;
+  letter-spacing: 1px;
+  padding: 10px 0;
+  border-radius: 5px;
+  border: 2px solid black;
+  width: 70%;
+  background: rgb(11, 11, 185);
+}
+
+.item:not(:last-child){
+  margin-bottom: 15px;
+}

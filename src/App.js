@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import Sidebar from "./components/Sidebar/Sidebar";
-import {friends} from './data.js'
 
 const App = (props) => {
   return (
@@ -11,7 +10,7 @@ const App = (props) => {
       <div className="wrapper">
         <div className="App">
           <Header />
-          <Main friends={friends}/>
+          <Main state={props.state} addPost={props.addPost}/>
           <Sidebar />
         </div>
       </div>

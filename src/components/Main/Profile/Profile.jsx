@@ -3,13 +3,13 @@ import MyPosts from './MyPosts/MyPosts';
 import Person from './Person/Person';
 import FormPost from './FormPost/FormPost';
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div className={styles.profile}>
       <div>
         <Person/>
-        <FormPost/>
-        <MyPosts/>
+        <FormPost addPost={props.addPost}/>
+        <MyPosts posts={props.posts.posts}/>
       </div>
     </div>
   );
