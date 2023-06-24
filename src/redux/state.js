@@ -1,4 +1,33 @@
-import reRender from "../render";
+const store = {
+  profilePage: {
+    posts: [
+      { text: "Post 1", likes: 23 },
+      { text: "Post 2", likes: 12 },
+      { text: "Post 3", likes: 24 },
+      { text: "Post 4", likes: 543 },
+      { text: "Post 5", likes: 1 },
+    ],
+    newPost: "",
+  },
+  messagesPage: {
+    friends: [
+      { name: "Mercury", id: 1 },
+      { name: "Venus", id: 2 },
+      { name: "Earth", id: 3 },
+      { name: "Mars", id: 4 },
+      { name: "Saturn", id: 1 },
+      { name: "Uranus", id: 1 },
+      { name: "Neptune", id: 1 },
+    ],
+    dialogs: ["Hey, have you ever ?", "Indeed, knowledge together!"],
+    newMessage: "",
+  },
+}
+
+
+let reRender = () => {
+
+}
 
 const state = {
   profilePage: {
@@ -46,5 +75,9 @@ export const addChangesMessage = (text) => {
   state.messagesPage.newMessage = text;
   reRender(state);
 };
+
+export const subscribe = (observer) => {
+  reRender = observer
+}
 
 export default state;
