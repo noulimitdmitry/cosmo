@@ -1,14 +1,17 @@
 .dialogs{
+  display:flex;
+  flex-direction: column;
+  justify-content: start;
   padding: 20px;
-  justify-content: center;
   border-left: 2px solid black;
 }
 
 .title{
   background-color:rgb(15, 31, 66);
+  align-self: center;
   display: inline-block;
   padding: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border-radius: 5px;
   font-size: 24px;
   color: yellow;
@@ -16,7 +19,26 @@
   border-radius: 1px solid black;
 }
 
-.titleDialogs{
+.items{
+flex: 1 1 auto;
+}
+
+.send{
+display: flex;
+justify-content: space-between;
+}
+
+.textarea{
+  width: 70%;
+}
+
+button{
+  display: flex;
+  align-items: center;
+  background-color:brown;
+  padding: 0 5px;
+  color: antiquewhite;
+  font-size: 24px;
 }
 
 .item{
@@ -30,5 +52,7 @@
 }
 
 .item:not(:last-child){
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
+
+

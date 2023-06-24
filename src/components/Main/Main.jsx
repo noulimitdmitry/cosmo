@@ -11,13 +11,31 @@ const Main = (props) => {
   return (
     <div className={styles.main}>
       <Routes>
-        <Route path="/" element={<Profile posts={props.state.profilePage} addPost={props.addPost}/>}></Route>
-        <Route path="/messages" element={<Messages messages={props.state.messagesPage}/>}></Route>
+        <Route
+          path="/"
+          element={
+            <Profile
+              posts={props.state.profilePage}
+              addPost={props.addPost}
+              addChangesText={props.addChangesText}
+            />
+          }
+        ></Route>
+        <Route
+          path="/messages"
+          element={
+            <Messages
+              messages={props.state.messagesPage}
+              addMessage={props.addMessage}
+              addChangesMessage={props.addChangesMessage}
+            />
+          }
+        ></Route>
         <Route path="/news" element={<News />}></Route>
         <Route path="/music" element={<Music />}></Route>
         <Route path="/settings" element={<Settings />}></Route>
       </Routes>
-      <Outlet/>
+      <Outlet />
     </div>
   );
 };

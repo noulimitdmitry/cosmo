@@ -3,10 +3,15 @@ import { createRef } from "react";
 
 const FormPost = (props) => {
   let newRef = createRef();
-  let truns = (event) => {
-    props.addPost(newRef.current.value);
-    newRef.current.value = '';
+  let activeAddPost = (event) => {
+    props.addPost();
+    newRef.current.value = "";
     event.preventDefault();
+  };
+
+  let activeAddChangesText = (event) => {
+    let text = newRef.current.value;
+    props.addChangesText(text);
   };
 
   return (
@@ -21,13 +26,15 @@ const FormPost = (props) => {
             cols="30"
             rows="3"
             ref={newRef}
+            value={props.newPost}
+            onChange={activeAddChangesText}
           ></textarea>
         </div>
         <div>
           <input
             className={styles.submit}
             type="submit"
-            onClick={truns}
+            onClick={activeAddPost}
           ></input>
         </div>
       </form>
