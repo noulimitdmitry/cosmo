@@ -1,4 +1,7 @@
-const store = {
+import reducerProfilePage from "./reducerProfilePage";
+import reducerMessagesPage from "./reducerMessagesPage";
+
+let store = {
   _state: {
     profilePage: {
       posts: [
@@ -32,21 +35,8 @@ const store = {
     return this._state;
   },
   dispatch(action) {
-    if (action.type == "ADD-POST") {
-      let text = this._state.profilePage.newPost;
-      this._state.profilePage.posts.push({ text: text, likes: 0 });
-      this._callSubscriber();
-    } else if (action.type == "ADD-CHANGES-TEXT") {
-      this._state.profilePage.newPost = action.text;
-      this._callSubscriber();
-    } else if (action.type == "ADD-MESSAGE") {
-      let message = this._state.messagesPage.newMessage;
-      this._state.messagesPage.dialogs.push(message);
-      this._callSubscriber();
-    } else if (action.type == "ADD-CHANGES-MESSAGE") {
-      this._state.messagesPage.newMessage = action.text;
-      this._callSubscriber();
-    }
+    reducerProfilePage(action, store._state.profilePage, store._callSubscriber);
+    reducerMessagesPage(action, store._state.messagesPage, store._callSubscriber);
   },
 };
 

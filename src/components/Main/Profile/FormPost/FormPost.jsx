@@ -1,17 +1,20 @@
 import styles from "./FormPost.module.css";
 import { createRef } from "react";
+import {actionCreatorAddPost} from "../../../../redux/reducerProfilePage"
+import {actionCreatorAddChangesPost} from "../../../../redux/reducerProfilePage"
+
 
 const FormPost = (props) => {
   let newRef = createRef();
   let activeAddPost = (event) => {
-    props.dispatch({type:"ADD-POST"});
+    props.dispatch(actionCreatorAddPost());
     newRef.current.value = "";
     event.preventDefault();
   };
 
   let activeAddChangesText = (event) => {
     let text = newRef.current.value;
-    props.dispatch({type:"ADD-CHANGES-TEXT", text:text});
+    props.dispatch(actionCreatorAddChangesPost(text));
   };
 
   return (
