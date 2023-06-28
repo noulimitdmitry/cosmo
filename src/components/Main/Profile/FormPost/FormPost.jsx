@@ -4,14 +4,14 @@ import { createRef } from "react";
 const FormPost = (props) => {
   let newRef = createRef();
   let activeAddPost = (event) => {
-    props.addPost();
+    props.dispatch({type:"ADD-POST"});
     newRef.current.value = "";
     event.preventDefault();
   };
 
   let activeAddChangesText = (event) => {
     let text = newRef.current.value;
-    props.addChangesText(text);
+    props.dispatch({type:"ADD-CHANGES-TEXT", text:text});
   };
 
   return (

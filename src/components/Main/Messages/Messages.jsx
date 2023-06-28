@@ -8,9 +8,8 @@ const Messages = (props) => {
       <Friends friends={props.messages.friends} />
       <Dialogs
         dialogs={props.messages.dialogs}
-        newMessage={props.messages.newMessage}
-        addMessage={props.addMessage}
-        addChangesMessage={props.addChangesMessage}
+        newMessage={props.newMessage}
+        dispatch={props.dispatch}
       />
     </div>
   );

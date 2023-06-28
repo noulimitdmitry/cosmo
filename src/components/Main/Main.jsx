@@ -16,8 +16,7 @@ const Main = (props) => {
           element={
             <Profile
               posts={props.state.profilePage}
-              addPost={props.addPost}
-              addChangesText={props.addChangesText}
+              dispatch={props.dispatch}
             />
           }
         ></Route>
@@ -26,8 +25,7 @@ const Main = (props) => {
           element={
             <Messages
               messages={props.state.messagesPage}
-              addMessage={props.addMessage}
-              addChangesMessage={props.addChangesMessage}
+              dispatch={props.dispatch}
             />
           }
         ></Route>
