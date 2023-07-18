@@ -11,6 +11,7 @@ const Sidebar = () => {
         <li className={styles.item}><Link to='/news' activeClassName={styles.activeLink}>News</Link></li>
         <li className={styles.item}><Link to='/music' activeClassName={styles.activeLink}>Music</Link></li>
         <li className={styles.item}><Link to='/settings' activeClassName={styles.activeLink}>Settings</Link></li>
+        <li className={styles.item}><Link to='/users' activeClassName={styles.activeLink}>Users</Link></li>
       </nav>
     </div>
   );

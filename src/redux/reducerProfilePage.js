@@ -7,15 +7,28 @@ export const actionCreatorAddChangesPost = (text) => ({
   text: text,
 });
 
-const reducerProfilePage = function (action, reducer, callSubscriber) {
-  if (action.type == ADD_POST) {
-    let text = reducer.newPost;
-    reducer.posts.push({ text: text, likes: 0 });
-    callSubscriber();
-  } else if (action.type == ADD_CHANGES_POST) {
-    reducer.newPost = action.text;
-    callSubscriber();
-  }
+let initualState = {
+  posts: [
+    { text: "Post 1", likes: 23 },
+    { text: "Post 2", likes: 12 },
+  ],
+  newPost: "",
 };
 
+const reducerProfilePage = (state = initualState, action) => {
+  switch (action.type) {
+    case ADD_POST:
+      let newObject = { text: state.newPost, likes: 0 };
+      return {
+        ...state,
+        posts: [...state.posts, newObject],
+        newPost: "",
+      };
+    case ADD_CHANGES_POST:
+      return { ...state, newPost: action.text };
+    default: {
+      return state;
+    }
+  }
+};
 export default reducerProfilePage;

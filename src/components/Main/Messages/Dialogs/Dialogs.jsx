@@ -1,5 +1,4 @@
 import styles from "./Dialogs.module.css";
-import { createRef } from "react";
 import { actionCreatorAddMessage } from "../../../../redux/reducerMessagesPage";
 import { actionCreatorAddChangesMessage } from "../../../../redux/reducerMessagesPage";
 
@@ -9,15 +8,12 @@ const Dialogs = (props) => {
     <li className={styles.item}>{arr[index]}</li>
   ));
 
-  let newRef = createRef();
-
-  let AddMessage = () => {
-    props.dispatch(actionCreatorAddMessage());
-    newRef.current.value = "";
+  let activeAddMessage = () => {
+    props.addMessage();
   };
-  let AddChangesMessage = () => {
-    let text = newRef.current.value;
-    props.dispatch(actionCreatorAddChangesMessage(text));
+  let activeAddChangesMessage = (event) => {
+    let text = event.target.value;
+    props.addChangesMessage(text);
   };
 
   return (
@@ -26,15 +22,14 @@ const Dialogs = (props) => {
       <div className={styles.items}>{arrMessages}</div>
       <div className={styles.send}>
         <textarea
-          onChange={AddChangesMessage}
-          ref={newRef}
+          onChange={activeAddChangesMessage}
           className={styles.textarea}
           value={props.newMessage}
           name=""
           id=""
           rows="1"
         ></textarea>
-        <button onClick={AddMessage}>send</button>
+        <button onClick={activeAddMessage}>send</button>
       </div>
     </div>
   );

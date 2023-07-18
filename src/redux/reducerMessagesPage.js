@@ -7,16 +7,37 @@ export const actionCreatorAddChangesMessage = (text) => ({
   text: text,
 });
 
+let initialState = {
+  friends: [
+    { name: "Mercury", id: 1 },
+    { name: "Venus", id: 2 },
+    { name: "Earth", id: 3 },
+    { name: "Mars", id: 4 },
+    { name: "Saturn", id: 1 },
+    { name: "Uranus", id: 1 },
+    { name: "Neptune", id: 1 },
+  ],
+  dialogs: ["Hey, have you ever ?", "Indeed, knowledge together!"],
+  newMessage: "",
+};
 
-let reducerMessagesPage = (action, reducer, callSubscriber) => {
-  if (action.type == ADD_MESSAGE) {
-    let message = reducer.newMessage
-    reducer.dialogs.push(message)
-    callSubscriber()
-  } else if (action.type == ADD_CHANGES_MESSAGE) {
-    reducer.newMessage = action.text;
-    callSubscriber()
+let reducerMessagesPage = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_MESSAGE:
+      let message = state.newMessage;
+      return {
+        ...state,
+        dialogs: [...state.dialogs, message],
+        newMessage: "",
+      };
+    case ADD_CHANGES_MESSAGE:
+      return {
+        ...state,
+        newMessage: action.text,
+      };
+    default:
+      return state;
   }
-}
+};
 
-export default reducerMessagesPage
+export default reducerMessagesPage;

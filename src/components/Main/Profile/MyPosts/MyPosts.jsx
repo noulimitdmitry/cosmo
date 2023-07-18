@@ -2,7 +2,6 @@ import styles from './MyPosts.module.css'
 import Post from './Post/Post'
 
 const MyPosts = (props) => {
-
   let arr = props.posts;
   const arrPosts = arr.map((item, index, arr) => (
     <Post post={props.posts[index].text} likes={props.posts[index].likes}/>

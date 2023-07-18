@@ -8,11 +8,8 @@ const Profile = (props) => {
     <div className={styles.profile}>
       <div>
         <Person />
-        <FormPost
-          addChanges={props.addChanges}
-          dispatch={props.dispatch}
-        />
-        <MyPosts posts={props.posts.posts} />
+        <FormPost newPost={props.newPost} addPost={props.addPost} addChangePostText={props.addChangePostText}/>
+        <MyPosts posts={props.posts} />
       </div>
     </div>
   );

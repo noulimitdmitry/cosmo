@@ -35,8 +35,9 @@ let store = {
     return this._state;
   },
   dispatch(action) {
-    reducerProfilePage(action, store._state.profilePage, store._callSubscriber);
-    reducerMessagesPage(action, store._state.messagesPage, store._callSubscriber);
+    this._state.profilePage = reducerProfilePage(action, store._state.profilePage);
+    this._state.messagesPage = reducerMessagesPage(action, store._state.messagesPage);
+    store._callSubscriber()
   },
 };
 

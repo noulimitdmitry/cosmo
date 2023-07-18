@@ -1,0 +1,41 @@
+.block{
+  width: 50%;
+  background-color: bisque;
+  display: flex;
+  margin: 20px 0 0 20px;
+}
+.block__img{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.block__info{
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr  1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+}
+
+img {
+  height: 40px;
+} 
+.follow{
+  color: blue;
+}
+
+.userName{
+  color: crimson;
+}
+  
+.userMessage{
+  color: crimson;
+  }
+  
+.userCountry{
+  color:cadetblue
+  }
+
+  .userCity{
+    color:cadetblue
+  }

@@ -10,10 +10,7 @@ const App = (props) => {
       <div className="wrapper">
         <div className="App">
           <Header />
-          <Main
-            state={props.state}
-            dispatch={props.dispatch}
-          />
+          <Main store={props.store} />
           <Sidebar />
         </div>
       </div>

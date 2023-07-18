@@ -1,11 +1,12 @@
 import { Routes, Route, Outlet } from "react-router-dom";
 
 import styles from "./Main.module.css";
-import Profile from "./Profile/Profile";
-import Messages from "./Messages/Messages";
+import ProfileContainer from "./Profile/ProfileContainer";
+import MessagesContainer from "./Messages/MessagesContainer";
 import News from "./News/News";
 import Music from "./Music/Music";
 import Settings from "./Settings/Settings";
+import UsersContainer from "./Users/UsersContainer";
 
 const Main = (props) => {
   return (
@@ -13,25 +14,16 @@ const Main = (props) => {
       <Routes>
         <Route
           path="/"
-          element={
-            <Profile
-              posts={props.state.profilePage}
-              dispatch={props.dispatch}
-            />
-          }
+          element={<ProfileContainer store={props.store} />}
         ></Route>
         <Route
           path="/messages"
-          element={
-            <Messages
-              messages={props.state.messagesPage}
-              dispatch={props.dispatch}
-            />
-          }
+          element={<MessagesContainer store={props.store} />}
         ></Route>
         <Route path="/news" element={<News />}></Route>
         <Route path="/music" element={<Music />}></Route>
         <Route path="/settings" element={<Settings />}></Route>
+        <Route path="/users" element={<UsersContainer />}></Route>
       </Routes>
       <Outlet />
     </div>

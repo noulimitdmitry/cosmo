@@ -1,20 +1,14 @@
 import styles from "./FormPost.module.css";
-import { createRef } from "react";
-import {actionCreatorAddPost} from "../../../../redux/reducerProfilePage"
-import {actionCreatorAddChangesPost} from "../../../../redux/reducerProfilePage"
-
 
 const FormPost = (props) => {
-  let newRef = createRef();
   let activeAddPost = (event) => {
-    props.dispatch(actionCreatorAddPost());
-    newRef.current.value = "";
+    props.addPost();
     event.preventDefault();
   };
 
-  let activeAddChangesText = (event) => {
-    let text = newRef.current.value;
-    props.dispatch(actionCreatorAddChangesPost(text));
+  let activeAddChangePostText = (event) => {
+    let text = event.target.value;
+    props.addChangePostText(text);
   };
 
   return (
@@ -28,9 +22,8 @@ const FormPost = (props) => {
             id="#"
             cols="30"
             rows="3"
-            ref={newRef}
             value={props.newPost}
-            onChange={activeAddChangesText}
+            onChange={activeAddChangePostText}
           ></textarea>
         </div>
         <div>

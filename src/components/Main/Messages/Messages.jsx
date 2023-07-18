@@ -5,11 +5,12 @@ import Friends from "./Friends/Friends";
 const Messages = (props) => {
   return (
     <div className={styles.messages}>
-      <Friends friends={props.messages.friends} />
+      <Friends friends={props.friends} />
       <Dialogs
-        dialogs={props.messages.dialogs}
+        dialogs={props.dialogs}
         newMessage={props.newMessage}
-        dispatch={props.dispatch}
+        addMessage={props.addMessage}
+        addChangesMessage={props.addChangesMessage}
       />
     </div>
   );
