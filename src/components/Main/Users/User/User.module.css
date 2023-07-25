@@ -2,7 +2,7 @@
   width: 50%;
   background-color: bisque;
   display: flex;
-  margin: 20px 0 0 20px;
+  margin-bottom: 20px;
 }
 .block__img{
   padding: 20px;
