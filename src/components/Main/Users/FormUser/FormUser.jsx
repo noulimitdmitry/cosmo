@@ -1,73 +1,36 @@
 import styles from "./FormUser.module.css";
 
+const newUsers = [
+  {
+    id: 3,
+    follow: true,
+    photoUrl:
+      "https://dovidka.biz.ua/wp-content/uploads/2020/01/%D0%BC%D0%B0%D1%80%D1%81-%D0%B4%D1%96%D1%82%D1%8F%D0%BC.jpg",
+    name: "Mars",
+    message: "i am red",
+    position: 4,
+    system: "sun",
+  },
+  {
+    id: 4,
+    follow: false,
+    photoUrl:
+      "https://futurenow.com.ua/wp-content/uploads/2020/09/tsikavi-fakty-pro-saturn-suputnyky-planety-saturn-kiltsya-atmosfera.jpg",
+    name: "Saturn",
+    message: "i am windy",
+    position: 5,
+    system: "cirius",
+  },
+];
+
 const FormUser = (props) => {
-  let addUser = () => {
-    props.addUser();
-  };
-  let addChangesName = (event) => {
-    let name = event.target.value;
-    props.addChangesName(name);
-  };
-  let addChangesMessage = (event) => {
-    let message = event.target.value;
-    props.addChangesMessage(message);
-  };
-  let addChangesPosition = (event) => {
-    let position = event.target.value;
-    props.addChangesPosition(position);
-  };
-  let addChangesSystem = (event) => {
-    let system = event.target.value;
-    props.addChangesSystem(system);
+  const setUsers = () => {
+    props.setUsers(newUsers);
   };
   return (
     <div className={styles.block}>
-      <div>
-        <label>
-          <span>Name:</span>
-          <input
-            type="text"
-            name="name"
-            value={props.newName}
-            onChange={addChangesName}
-          />
-        </label>
-      </div>
-      <div>
-        <label>
-          <span>Message:</span>
-          <input
-            type="text"
-            name="message"
-            value={props.newMessage}
-            onChange={addChangesMessage}
-          />
-        </label>
-      </div>
-      <div>
-        <label>
-          <span>Position:</span>
-          <input
-            type="text"
-            name="position"
-            value={props.newPosition}
-            onChange={addChangesPosition}
-          />
-        </label>
-      </div>
-      <div>
-        <label>
-          <span>System:</span>
-          <input
-            type="text"
-            name="system"
-            value={props.newSystem}
-            onChange={addChangesSystem}
-          />
-        </label>
-      </div>
-      <button className={styles.button} onClick={addUser}>
-        Add User
+      <button className={styles.button} onClick={setUsers}>
+        SET USER
       </button>
     </div>
   );

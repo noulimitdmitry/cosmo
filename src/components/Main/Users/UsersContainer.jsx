@@ -1,37 +1,23 @@
-import Users from "./Users";
-import { actionCreatorAddUser } from "../../../redux/reducerUsersPage";
-import { actionCreatorAddChangesName } from "../../../redux/reducerUsersPage";
-import { actionCreatorAddChangesMessage } from "../../../redux/reducerUsersPage";
-import { actionCreatorAddChangesPosition } from "../../../redux/reducerUsersPage";
-import { actionCreatorAddChangesSystem } from "../../../redux/reducerUsersPage";
+import { followAC, unfollowAC, setUsersAC } from "../../../redux/reducerUsersPage";
 import { connect } from "react-redux";
+import Users from "./Users";
 
 let mapStateToProps = (state) => {
   return {
     users: state.usersPage.users,
-    newName: state.usersPage.newName,
-    newMessage: state.usersPage.newMessage,
-    newPosition: state.usersPage.newPosition,
-    newSystem: state.usersPage.newSystem,
   };
 };
 
-let mapDispatchToProps = (dispatches) => {
+let mapDispatchToProps = (dispatch) => {
   return {
-    addUser: (name, message, position, system) => {
-      dispatches(actionCreatorAddUser(name, message, position, system));
+    follow: (userId) => {
+      dispatch(followAC(userId));
     },
-    addChangesName: (name) => {
-      dispatches(actionCreatorAddChangesName(name));
+    unfollow: (userId) => {
+      dispatch(unfollowAC(userId));
     },
-    addChangesMessage: (message) => {
-      dispatches(actionCreatorAddChangesMessage(message));
-    },
-    addChangesPosition: (position) => {
-      dispatches(actionCreatorAddChangesPosition(position));
-    },
-    addChangesSystem: (system) => {
-      dispatches(actionCreatorAddChangesSystem(system));
+    setUsers: (users) => {
+      dispatch(setUsersAC(users));
     },
   };
 };
