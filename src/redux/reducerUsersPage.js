@@ -24,7 +24,7 @@ let initualState = {
       follow: true,
       photoUrl:
         "https://dovidka.biz.ua/wp-content/uploads/2020/01/%D0%BC%D0%B0%D1%80%D1%81-%D0%B4%D1%96%D1%82%D1%8F%D0%BC.jpg",
-      name: "Mars",
+      name: "Marsy",
       message: "i am red",
       position: 4,
       system: "sun",
