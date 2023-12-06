@@ -18,7 +18,41 @@ export const setUsersAC = (users) => ({
 });
 
 let initualState = {
-  users: [],
+  users: [
+    //   {
+    //     name: "carmel",
+    //     id: 5,
+    //     uniqueUrlName: null,
+    //     photos: {
+    //       small: null,
+    //       large: null,
+    //     },
+    //     status: null,
+    //     followed: true,
+    //   },
+    //   {
+    //     name: "babel",
+    //     id: 6,
+    //     uniqueUrlName: null,
+    //     photos: {
+    //       small: null,
+    //       large: null,
+    //     },
+    //     status: null,
+    //     followed: false,
+    //   },
+    //   {
+    //     name: "chok",
+    //     id: 7,
+    //     uniqueUrlName: null,
+    //     photos: {
+    //       small: null,
+    //       large: null,
+    //     },
+    //     status: null,
+    //     followed: true,
+    //   },
+  ],
 };
 
 const reducerUsersPage = (state = initualState, action) => {
@@ -27,14 +61,14 @@ const reducerUsersPage = (state = initualState, action) => {
       return {
         ...state,
         users: state.users.map((user) =>
-          user.id == action.userId ? { ...user, follow: true } : user
+          user.id == action.userId ? { ...user, followed: true } : user
         ),
       };
     case UNFOLLOW:
       return {
         ...state,
         users: state.users.map((user) =>
-          action.userId == user.id ? { ...user, follow: false } : user
+          action.userId == user.id ? { ...user, followed: false } : user
         ),
       };
     case USERS:

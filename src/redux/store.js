@@ -10,6 +10,7 @@ let store = {
         { text: "Post 3", likes: 24 },
         { text: "Post 4", likes: 543 },
         { text: "Post 5", likes: 1 },
+        { text: "Post 6", likes: 1 },
       ],
       newPost: "",
     },

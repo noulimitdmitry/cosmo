@@ -1,6 +1,8 @@
 import Profile from "./Profile";
-import { actionCreatorAddPost } from "../../../redux/reducerProfilePage";
-import { actionCreatorAddChangesPost } from "../../../redux/reducerProfilePage";
+import {
+  actionCreatorAddPost,
+  actionCreatorAddChangesPost,
+} from "../../../redux/reducerProfilePage";
 import { connect } from "react-redux";
 
 let mapStateToProps = (state) => {

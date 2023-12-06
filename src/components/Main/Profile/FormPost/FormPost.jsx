@@ -1,14 +1,14 @@
 import styles from "./FormPost.module.css";
 
 const FormPost = (props) => {
-  let activeAddPost = (event) => {
-    props.addPost();
-    event.preventDefault();
-  };
-
   let activeAddChangePostText = (event) => {
     let text = event.target.value;
     props.addChangePostText(text);
+  };
+
+  let activeAddPost = (event) => {
+    props.addPost();
+    event.preventDefault();
   };
 
   return (
