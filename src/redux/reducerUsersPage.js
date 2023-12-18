@@ -1,6 +1,8 @@
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const USERS = "USERS";
+const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT";
 
 export const followAC = (userId) => ({
   type: FOLLOW,
@@ -17,42 +19,22 @@ export const setUsersAC = (users) => ({
   users: users,
 });
 
+export const setCurrentPageAC = (currentPage) => ({
+  type: SET_CURRENT_PAGE,
+  currentPage: currentPage,
+});
+
+export const setTotalUsersCountAC = (totalCountPages) => ({
+  type: SET_TOTAL_USERS_COUNT,
+  totalCount: totalCountPages,
+});
+
 let initualState = {
-  users: [
-    //   {
-    //     name: "carmel",
-    //     id: 5,
-    //     uniqueUrlName: null,
-    //     photos: {
-    //       small: null,
-    //       large: null,
-    //     },
-    //     status: null,
-    //     followed: true,
-    //   },
-    //   {
-    //     name: "babel",
-    //     id: 6,
-    //     uniqueUrlName: null,
-    //     photos: {
-    //       small: null,
-    //       large: null,
-    //     },
-    //     status: null,
-    //     followed: false,
-    //   },
-    //   {
-    //     name: "chok",
-    //     id: 7,
-    //     uniqueUrlName: null,
-    //     photos: {
-    //       small: null,
-    //       large: null,
-    //     },
-    //     status: null,
-    //     followed: true,
-    //   },
-  ],
+  users: [],
+  totalCount: 0,
+  pageSize: 10,
+  firstPage: 1,
+  currentPage: 2,
 };
 
 const reducerUsersPage = (state = initualState, action) => {
@@ -72,7 +54,11 @@ const reducerUsersPage = (state = initualState, action) => {
         ),
       };
     case USERS:
-      return { ...state, users: [...state.users, ...action.users] };
+      return { ...state, users: action.users };
+    case SET_CURRENT_PAGE:
+      return { ...state, currentPage: action.currentPage };
+    case SET_TOTAL_USERS_COUNT:
+      return { ...state, totalCount: action.totalCount <= 100 ? action.totalCount : 100};
     default: {
       return state;
     }

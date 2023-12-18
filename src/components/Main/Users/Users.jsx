@@ -1,26 +1,27 @@
 import styles from "./Users.module.css";
 import User from "./User/User";
-// import FormUser from "./FormUser/FormUser";
-import axios from "axios";
 import React from "react";
 
-class Users extends React.Component {
-  getUsers = () => {
-    axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
-      .then((response) => {
-        this.props.setUsers(response.data.items);
-      });
-  };
-  render() {
+const Users = (props) => {
+    let pageCount = Math.ceil(props.totalCount / props.pageSize);
+    let pages = [];
+    for (let i = 1; i <= pageCount; i++) {
+      pages.push(i);
+    }
     return (
       <div className={styles.block}>
-        <div className={styles.block}>
-          <button className={styles.button} onClick={this.getUsers}>
-            SET USER
-          </button>
+        <div className={styles.pagination}>
+          {pages.map((p, index) => (
+            <span
+              id={index}
+              className={props.currentPage == p && styles.modifided}
+              onClick={() => props.onChangePage(p)}
+            >
+              {p}
+            </span>
+          ))}
         </div>
-        {this.props.users.map((item, index, arr) => (
+        {props.users.map((item, index, arr) => (
           <User
             className={styles.user}
             name={item.name}
@@ -29,14 +30,12 @@ class Users extends React.Component {
             photos={item.photos}
             status={item.status}
             followed={item.followed}
-            clickFollow={this.props.follow}
-            clickUnfollow={this.props.unfollow}
+            clickFollow={props.follow}
+            clickUnfollow={props.unfollow}
           />
         ))}
-        {/* <FormUser /> */}
       </div>
     );
   }
-}
 
 export default Users;

@@ -1,3 +1,36 @@
 .block{
   padding: 20px 0 0 20px ;
 }
+
+.pagination{
+  display: flex;
+  justify-content: start;
+  align-items: flex-end;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+span{
+  padding: 10px;
+  margin: 5px 5px;
+  background-color: rgb(37, 202, 244);
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+}
+
+span:hover {
+  transform: scale(1.1);
+}
+
+.modifided{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    transition: transform 0.3s ease; 
+  }
