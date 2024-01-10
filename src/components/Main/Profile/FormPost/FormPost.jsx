@@ -3,7 +3,7 @@ import styles from "./FormPost.module.css";
 const FormPost = (props) => {
   let activeAddChangePostText = (event) => {
     let text = event.target.value;
-    props.addChangePostText(text);
+    props.addChangesPost(text);
   };
 
   let activeAddPost = (event) => {

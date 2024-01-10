@@ -1,5 +1,6 @@
 import styles from "./User.module.css";
 import React from "react";
+import { Link } from "react-router-dom";
 
 class User extends React.Component {
   clickFollow = (event) => {
@@ -12,7 +13,7 @@ class User extends React.Component {
     return (
       <div className={styles.block}>
         <div className={styles.block__img}>
-          <img src={this.props.photos.small} alt="avatar" />
+          <Link to="/"><img src={this.props.photos.small} alt="avatar" /></Link>
           <button
             className={styles.follow}
             onClick={this.clickFollow}

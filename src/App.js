@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./App.css";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
@@ -6,15 +6,17 @@ import Sidebar from "./components/Sidebar/Sidebar";
 
 const App = (props) => {
   return (
-    <BrowserRouter>
+    <Router>
       <div className="wrapper">
         <div className="App">
           <Header />
-          <Main store={props.store} />
+          <Routes>
+            <Route path="/" element={<Main store={props.store} />} />
+          </Routes>
           <Sidebar />
         </div>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 };
 
