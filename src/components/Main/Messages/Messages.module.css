@@ -6,9 +6,12 @@
 .friends{
   padding: 20px;
   background-color: rgb(14, 169, 203);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   border-left: 2px solid black;
 }
