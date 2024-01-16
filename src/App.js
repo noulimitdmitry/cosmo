@@ -11,7 +11,7 @@ const App = (props) => {
         <div className="App">
           <Header />
           <Routes>
-            <Route path="/" element={<Main store={props.store} />} />
+            <Route path="*" element={<Main store={props.store} />} />
           </Routes>
           <Sidebar />
         </div>

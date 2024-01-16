@@ -6,12 +6,12 @@ const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
       <nav className={styles.items}>
-        <li className={styles.item}><Link to='/' activeClassName={styles.activeLink}>Profile</Link></li>
-        <li className={styles.item}><Link to='/messages' activeClassName={styles.activeLink}>Messages</Link></li>
-        <li className={styles.item}><Link to='/news' activeClassName={styles.activeLink}>News</Link></li>
-        <li className={styles.item}><Link to='/music' activeClassName={styles.activeLink}>Music</Link></li>
-        <li className={styles.item}><Link to='/settings' activeClassName={styles.activeLink}>Settings</Link></li>
-        <li className={styles.item}><Link to='/users' activeClassName={styles.activeLink}>Users</Link></li>
+        <li className={styles.item}><Link to='/' className={styles.link}>Profile</Link></li>
+        <li className={styles.item}><Link to='/messages' className={styles.link}>Messages</Link></li>
+        <li className={styles.item}><Link to='/news' className={styles.link}>News</Link></li>
+        <li className={styles.item}><Link to='/music' className={styles.link}>Music</Link></li>
+        <li className={styles.item}><Link to='/settings' className={styles.link}>Settings</Link></li>
+        <li className={styles.item}><Link to='/users' className={styles.link}>Users</Link></li>
       </nav>
     </div>
   );

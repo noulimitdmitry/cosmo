@@ -1,4 +1,5 @@
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
+// import { Routes, Route, Outlet } from "react-router-dom";
 
 import styles from "./Main.module.css";
 import ProfileContainer from "./Profile/ProfileContainer";
@@ -13,7 +14,7 @@ const Main = (props) => {
     <div className={styles.main}>
       <Routes>
         <Route
-          path="/"
+          path="*"
           element={<ProfileContainer store={props.store} />}
         ></Route>
         <Route
@@ -25,7 +26,6 @@ const Main = (props) => {
         <Route path="/settings" element={<Settings />}></Route>
         <Route path="/users" element={<UsersContainer />}></Route>
       </Routes>
-      <Outlet />
     </div>
   );
 };
